@@ -1,0 +1,21 @@
+spring:
+  profiles.active: develop
+
+# Environment - Development
+---
+spring:
+  profiles: develop
+  application:
+    name: spring-security-basic
+
+server:
+  address: localhost
+  port: 8080
+  servlet:
+    context-path: /api
+
+
+
+
+
+
