@@ -1,5 +1,6 @@
 package com.spring.teste.security.resources;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,8 +23,8 @@ public class ProdutoController {
 	
 	@PostMapping
 	@ResponseBody
-	public String cadastrar() {
-		return "Produto cadastrado com sucesso.";
+	public ResponseEntity<String> cadastrar() {
+		return ResponseEntity.ok("Produto cadastrado com sucesso.");
 	}
 	
 	@PutMapping
@@ -33,7 +34,7 @@ public class ProdutoController {
 	}	
 	
 	@DeleteMapping("/{id}")
-	//@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@ResponseBody
 	public String deletar(@PathVariable int id) {
 		return "Produto de id "+id+ " foi deletado com sucesso.";
